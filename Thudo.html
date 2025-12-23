@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm kiếm thủ đô của quốc gia</title>
+</head>
+<body>
+<h2>Kết Quả </h2>
+<p id="result"></p>
+
+<script>
+    let city =["Hanoi","Tokyo","Paris","London","Beịing","Seoul"];
+    let country=["Vietnam","Japan","France","Uk","China","SouthKorea"];
+    function findcountry(cityname){
+        for(let i=0;i<city.length;i++){
+            if (city[i].toLowerCase()=== cityname.toLowerCase()){
+                return country[i];
+
+            }
+        }
+        return null;
+
+    }
+    let inputcity= prompt("Nhập vào thành phố của quốc gia cần tìm : ")
+    let result= findcountry(inputcity);
+    if (result !== null){
+        document.getElementById("result").innerHTML = "Thủ đô<b>"+inputcity+"</b>Thuộc quốc gia <b> " + result +"<b/>";
+    } else {
+        document.getElementById("result").innerHTML =
+            "Không tìm thấy <b>" + inputcity + "</b> này trong danh sách.";
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

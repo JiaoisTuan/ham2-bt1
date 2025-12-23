@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập tăng số</title>
+</head>
+<body>
+
+<p id="result"></p>
+
+<script>
+    // Hàm nhận vào một số, tăng lên 1 và trả về kết quả
+    function tangGiaTri(number) {
+        return number + 1;
+    }
+
+    let x = 5;
+    let ketQua = tangGiaTri(x);
+
+    // Hiển thị kết quả lên màn hình
+    document.getElementById("result").innerHTML =
+        "Giá trị ban đầu: " + x + "<br>" +
+        "Giá trị sau khi tăng: " + ketQua;
+</script>
+
+</body>
+</html>
