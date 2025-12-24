@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5563d6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        td:nth-child(2) {
+            cursor: pointer;
+            color: #333;
+        }
+
+        td:nth-child(2):hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+        }
+
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>📦 Quản lý sản phẩm</h2>
+
+    <div class="input-group">
+        <input type="text" id="productInput" placeholder="Nhập tên sản phẩm">
+        <button onclick="addProduct()">Thêm</button>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Xóa</th>
+        </tr>
+        </thead>
+        <tbody id="productList"></tbody>
+    </table>
+</div>
+
+<script>
+    let products = ["Iphone", "Samsung", "Nokia"];
+
+    function showProducts() {
+        let html = "";
+        for (let i = 0; i < products.length; i++) {
+            html += `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td onclick="editProduct(${i})">${products[i]}</td>
+                    <td>
+                        <button class="delete-btn" onclick="deleteProduct(${i})">Xóa</button>
+                    </td>
+                </tr>
+            `;
+        }
+        document.getElementById("productList").innerHTML = html;
+    }
+
+    function addProduct() {
+        let name = document.getElementById("productInput").value;
+        if (name === "") {
+            alert("Vui lòng nhập tên sản phẩm");
+            return;
+        }
+        products.push(name);
+        document.getElementById("productInput").value = "";
+        showProducts();
+    }
+
+    function editProduct(index) {
+        let newName = prompt("Sửa tên sản phẩm:", products[index]);
+        if (newName !== null && newName !== "") {
+            products[index] = newName;
+            showProducts();
+        }
+    }
+
+    function deleteProduct(index) {
+        if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
+            products.splice(index, 1);
+            showProducts();
+        }
+    }
+
+    showProducts();
+</script>
+
+</body>
+</html>
