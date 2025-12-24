@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra từ đối xứng</title>
+</head>
+<body>
+
+<script>
+    function isPalindrome(s) {
+
+        // 1️⃣ Điều kiện dừng của đệ quy
+        if (s.length <= 1) {
+            return true;
+        }
+
+        // 2️⃣ So sánh ký tự đầu và ký tự cuối
+        if (s[0] !== s[s.length - 1]) {
+            return false;
+        }
+
+        // 3️⃣ Gọi lại chính hàm với chuỗi nhỏ hơn
+        return isPalindrome(s.slice(1, s.length - 1));
+    }
+
+    // Kiểm tra
+    alert(isPalindrome("rotor"));   // true
+    alert(isPalindrome("motor"));   // false
+</script>
+
+</body>
+</html>
