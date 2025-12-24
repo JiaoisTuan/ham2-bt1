@@ -1,0 +1,13 @@
+<script>
+    function daoNguocMang(arr) {
+        let mangMoi = [];
+        for (let i = arr.length - 1; i >= 0; i--) {
+            mangMoi.push(arr[i]);
+        }
+        return mangMoi;
+    }
+
+    let mang = [1, 2, 3, 4, 5];
+    let ketQua = daoNguocMang(mang);
+    alert(ketQua);
+</script>

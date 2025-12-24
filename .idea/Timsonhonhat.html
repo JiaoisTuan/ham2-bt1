@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số nguyên nhỏ nhất</title>
+</head>
+<body>
+<script>
+
+    function smallNumber(a,b,c){
+        let small = a;
+
+        if (b < small) {
+            small = b;
+        }
+
+        if (c < small) {
+            small = c;
+        }
+
+        return small;
+
+
+
+    }
+    let a=Number(prompt("Nhập vào số thứ nhất:"))
+    let b=Number(prompt("Nhập vào số thứ hai:"))
+    let c=Number(prompt('Nhập vào số thứ 3:'))
+let result=smallNumber(a,b,c)
+alert(result)
+</script>
+</body>
+</html>

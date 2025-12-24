@@ -1,0 +1,18 @@
+<script>
+    function demKyTu(arr, kyTu) {
+        let dem = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === kyTu) {
+                dem++;
+            }
+        }
+        if (dem === 0) {
+            return -1;
+        }
+        return dem;
+    }
+
+    let mangKyTu = ['a', 'b', 'a', 'c', 'a'];
+    let ketQua = demKyTu(mangKyTu, 'a');
+    alert(ketQua);
+</script>

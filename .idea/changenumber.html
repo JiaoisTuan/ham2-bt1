@@ -1,0 +1,11 @@
+<script>
+    function doiCho(a, b) {
+        let temp = a; // lưu a tạm thời
+        a = b;        // gán b cho a
+        b = temp;     // gán a cũ cho b
+        return [a, b];
+    }
+
+    let ketQua = doiCho(5, 10);
+    alert("Sau khi đổi: a = " + ketQua[0] + ", b = " + ketQua[1]);
+</script>
